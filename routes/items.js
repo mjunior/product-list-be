@@ -8,7 +8,7 @@ const parseSearchResult = require('../helpers/parseSearchResult');
 
 // PATH: /items/:id
 router.get('/', function(req, res, next) {
-  fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${req.params.q}`)
+  fetch(`${process.env.API_BASE_URL}/sites/MLA/search?q=${req.params.q}`)
     .then(body => body.json())
     .then(body => parseSearchResult(body))
     .then(async(body) => await parseBreadcrumbResult(body) )
