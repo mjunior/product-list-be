@@ -1,4 +1,5 @@
 const parseCategoriesResult = require('./parseCategoriesResult');
+const parseItemResult = require('./parseItemResult');
 
 const parseSearchResult = (data) => {
   categories = parseCategoriesResult(data);
@@ -8,7 +9,7 @@ const parseSearchResult = (data) => {
       last_name: 'Junior' 
     },
     categories: categories,
-    items: data["results"]
+    items: data["results"].map((item) => parseItemResult(item))
   }
 }
 
