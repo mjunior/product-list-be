@@ -9,8 +9,8 @@ const app = express();
 app.use(logger('dev'));
 app.use(express.json());
 
-app.use('/', indexRouter);
-app.use('/items', itemsRouter);
+app.use('/api/', indexRouter);
+app.use('/api/items', itemsRouter);
 
 app.use(function(req, res, next) {
   res.status(404).json({error: 'Not found'});
