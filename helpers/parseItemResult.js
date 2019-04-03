@@ -12,6 +12,7 @@ const parseItemResult = (data) => {
       "decimals": decimals(data['price']),
     },
     "picture": data['thumbnail'],
+    "city_name": data['address'] !== undefined ? data['address']['city_name'] : undefined,
     "condition": data['condition'],
     "free_shipping": data['shipping']['free_shipping'],
     "sold_quantity": data['sold_quantity'],
